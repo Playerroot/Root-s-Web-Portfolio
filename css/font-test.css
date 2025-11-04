@@ -1,0 +1,76 @@
+@charset "utf-8";
+/* 폰트 파일 웹에서 연결하기 */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+JP:wght@100..900&family=Noto+Sans+KR:wght@100..900&display=swap');
+
+
+/* ↓ 나눔 고딕서체 ( 레귤러~엑스트라 볼드 )*/
+.nanum-gothic-regular {
+    font-family: "Nanum Gothic", sans-serif;
+    font-weight: 400;
+    /* 400, 700, 800 */
+    font-style: normal;
+}
+
+
+/* ↓ 나눔 명조서체 ( 레귤러~엑스트라 볼드 ) */
+.nanum-myeongjo-regular {
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: 400;
+    /* 400, 700, 800 */
+    font-style: normal;
+}
+
+
+/* ↓  구글 폰트 사이트에서 폰트 3가지 자동 적용 */
+
+h1 {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 40px;
+    font-size: 16px;
+    color: #222;
+}
+
+/* h2 {
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: 800;
+    font-style: normal;
+} */
+
+/*  */
+/* 폰트 파일 cdn 방법으로 연결하기  */
+@font-face {
+    font-family: 'Memoment';
+    src: url(/Portfolio/font/transfonter.org-20250930-062553/MemomentKkukkukkR.woff2) format('woff2');
+    /*  woff2폰트가 용량도 적어서 자주 쓰므로 ↑ 필수 */
+    font-display: swap;
+}
+
+/*  */
+
+ul,
+li {
+    list-style-type: none;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+/* 테이블은 잘 안씀 */
+
+img,
+fieldset {
+    border: none;
+    /* 익스플로어 초기 한정 밑줄 제거용 */
+    vertical-align: middle;
+    /* 세로 정렬 */
+}
+
+input,
+textarea {
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    vertical-align: middle;
+    /* inherit = 상속받게 함 */
+}

@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Root's Web Portfolio</title>
+
+    <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg" />
+    <link rel="shortcut icon" href="./favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="./favicon/site.webmanifest" />
+
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.css" />
+    <link rel="stylesheet" href="./css/slide.css">
+</head>
+
+<body>
+    <div id="wrap">
+        <div class="fix">
+            <!-- <div class="cur-scroll">
+                현재 스크롤 값 : <span>0</span>
+            </div> -->
+            <div class="scroll-pager">
+                <span></span>
+            </div>
+            <a href="#home">
+                <div class="top-btn"><i class="fa-solid fa-chevron-up"></i></div>
+            </a>
+            <nav class="nav-icon">
+                <div class="Plus-btn"><i class="fa-solid fa-plus"></i></div>
+                <ul>
+                    <li class="on"><a href="#home" title="Go home"><i class="fa-solid fa-house-user"></i></a></li>
+                    <li><a href="#about" title="Go about"><i class="fa-solid fa-circle-user"></i></a></li>
+                    <li><a href="#folio" title="Go portfolio"><i class="fa-solid fa-file-word"></i></a></li>
+                    <li><a href="#game" title="Go game"><i class="fab fa-discord"></i></a></li>
+                    <li><a href="#movie" title="Go movie"><i class="fab fa-youtube"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <header>
+            <h1><a href="#">Root's Web PortFolio<i class="fa-regular fa-circle-user"></i></a></h1>
+            <nav>
+                <div class="mobile ham-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="main-nav-list">
+                    <li class="on"><a href="#home">home</a></li>
+                    <li><a href="#about">about</a></li>
+                    <li><a href="#folio">portfolio</a></li>
+                    <li><a href="#game">game</a></li>
+                    <li><a href="#movie">movie</a></li>
+                    <li><a href="#tip">tip</a></li>
+                </ul>
+                <div class="nav-bg"></div>
+            </nav>
+            <div class="darkmode-btn">
+                <span class="sun">
+                    <i class="moon"></i>
+                </span>
+                <span class="cloud">
+                    <i class="left-cloud"></i>
+                    <i class="right-cloud"></i>
+                </span>
+            </div>
+        </header>
+
+        <!-- Home part -->
+
+        <main>
+            <section id="home">
+                <div>
+                    <div class="title-home">
+                        <h2>
+                            <img src="./img/home_section_eng_text.png" width="800px" class="lightmode" alt="english_text">
+                            <img src="./img/home_section_eng_text_darkmode.png" width="800px" class="darkmode" alt="english_text_darkmode">
+                        </h2>
+                    </div>
+                    <div class="sub-title">
+                        <p>
+                            <img src="./img/home_section_kor_text.png" width="800px" class="lightmode" alt="kor_text">
+                            <img src="./img/home_section_kor_text_darkmode.png" class="darkmode" width="800px" alt="kor_text_darkmode">
+                        </p>
+                    </div>
+                    <div class="home-img right">
+                        <img src="./img/home_neon_sign_lightmode.png" class="lightmode" alt="sign_JH">
+                        <img src="./img/home_neon_sign.png" class="darkmode" alt="neon_sign_JH">
+                    </div>
+                </div>
+            </section>
+
+            <!-- About part -->
+
+            <section id="about">
+                <div class="about-wrap">
+                    <!-- 왼쪽 이니셜 -->
+                    <div class="jh-initial">
+                        <img src="./img/About_JH.png" class="lightmode" alt="About_JH">
+                    </div>
+
+                    <!-- 오른쪽 내용 -->
+                    <div class="sub-title">
+                        <div class="sub-title top">
+                            <h2>About me</h2>
+                            <p>
+                                이용자를 고려한 웹사이트를 만들어 나가는 목표를 가진 루트입니다. <br>
+                                제가 하는 게임에대한 팁과 부족한 실력으로 만든 포트폴리오지만 <br>
+                                성장 하는 과정을 기록 하려는 목표에서 만든 홈페이지입니다.
+                            </p>
+                        </div>
+                        <div class="sub-title under">
+                            <div class="sub-title under-left">
+                                <h2>My hobby</h2>
+                                <p>게임,게임 관련 커뮤니티 활동</p>
+                                <p>밤 산책,유튜브 감상</p>
+                            </div>
+
+                            <div class="sub-title under-right">
+                                <h2>My education</h2>
+                                <p>- **중학교 졸업</p>
+                                <p>- **고등학교 졸업</p>
+                                <p>- *해 영진 직업전문학교 특수 용접 위탁 교육 수료</p>
+                                <p>- *산 미래컴퓨터학원 **점 UI UX 과정 수강 중</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Portfolio part -->
+
+            <section id="folio">
+                <div class="title">
+                    <h2>my Portfolio list</h2>
+                    <p class="sub-title"> <em>어쩌다 보니</em>포트폴리오가 되버렸습니다?</p>
+                </div>
+                <div class="cont-inner">
+                    <div class="swiper-container myPortfolioSwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="folio-overlay">
+                                    <a href="./img/drink.jpg" data-fancybox="my_portfolio_swiper_group"
+                                        data-title="1175 x 774" data-type="image">
+                                        <img src="./img/drink.jpg" alt="Portfolio_first_Thumbnail">
+                                    </a>
+                                    <h3>Adobe Photoshop</h3>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="folio-overlay">
+                                    <a href="./img/3D.jpg" data-fancybox="my_portfolio_swiper_group"
+                                        data-title="600 x 600" data-type="image">
+                                        <img src="./img/3D.jpg" alt="Portfolio_second_Thumbnail">
+                                    </a>
+                                    <h3>Adobe illustrator</h3>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="folio-overlay">
+                                    <a href="./img/isometric.jpg" data-fancybox="my_portfolio_swiper_group"
+                                        data-title="595 x 842" data-type="image">
+                                        <img src="./img/isometric.jpg" alt="Portfolio_last_Thumbnail"></a>
+                                    <h3>Adobe illustrator</h3>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="folio-overlay">
+                                    <a href="./img/desert-lli.jpg" data-fancybox="my_portfolio_swiper_group"
+                                        data-title="604 x 853" data-type="image">
+                                        <img src="./img/desert-lli.jpg" alt="Portfolio_last_Thumbnail"></a>
+                                    <h3>Adobe illustrator</h3>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="folio-overlay">
+                                    <a href="./img/gravity.jpg" data-fancybox="my_portfolio_swiper_group"
+                                        data-title="595 x 842" data-type="image">
+                                        <img src="./img/gravity.jpg" alt="Portfolio_last_Thumbnail"></a>
+                                    <h3>Adobe Photoshop</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Game part -->
+
+            <section id="game">
+                <div class="title">
+                    <h2>playing game list</h2>
+                </div>
+
+                <div class="game-tabs game-inner">
+                    <div class="game-tab-item" data-game="cyberpunk">Cyberpunk 2077</div>
+                    <div class="game-tab-item" data-game="l4d2">Left 4 Dead 2</div>
+                    <div class="game-tab-item" data-game="overwatch">OverWatch</div>
+                    <div class="game-tab-item" data-game="yugioh">Yu-gi-oh duel links</div>
+                </div>
+
+                <!-- 사이버펑크 -->
+                <div class="game-content" id="cyberpunk-content">
+                    <a href="https://youtu.be/xx_HHPdapkA?share&autoplay=0&mute=1&controls=1&rel=0"
+                        data-fancybox="game_videos_preview" data-caption="Cyberpunk2077 playing">
+                        <div class="game-illustration-wrapper">
+                            <img src="./img/Cyberpunk_EG.png" alt="사이버펑크 일러스트 1"
+                                class="game-illustration game-changing-image active">
+                            <img src="./img/Cyberpunk_Edgerunners.png" alt="사이버펑크 일러스트 2"
+                                class="game-illustration game-changing-image">
+                        </div>
+                        <!-- 플레이 버튼 -->
+                        <div class="play-button">▶</div>
+
+                    </a>
+                </div>
+
+                <!-- 레포데2 -->
+                <div class="game-content" id="l4d2-content">
+                    <a href="https://youtu.be/8SPWsmasgXU?si=eKA6NBIVLslCOwyz?feature=share&autoplay=0&mute=1&controls=1&rel=0"
+                        data-fancybox="game_videos_preview" data-caption="Left4dead2 playing">
+                        <div class="game-illustration-wrapper">
+                            <img src="./img/left4dead2.png" alt="레포데 일러스트 1"
+                                class="game-illustration game-changing-image active">
+                            <img src="./img/[SFM]_Left_4_Dead.png" alt="레포데 일러스트 2"
+                                class="game-illustration game-changing-image">
+                        </div>
+
+                        <!-- 플레이 버튼 -->
+                        <div class="play-button">▶</div>
+
+                    </a>
+                </div>
+
+                <!-- 오버워치 -->
+                <div class="game-content" id="overwatch-content">
+                    <a href="https://youtu.be/j9YXi0WohA4?si=lq5DZIMtP8if8TtG?feature=share&autoplay=0&mute=1&controls=1&rel=0"
+                        data-fancybox="game_videos_preview" data-caption="Overwatch playing">
+                        <div class="game-illustration-wrapper">
+                            <img src="./img/overwatch.png" alt="오버워치 일러스트 1"
+                                class="game-illustration game-changing-image active">
+                            <img src="./img/overwatch2.png" alt="오버워치 일러스트 2"
+                                class="game-illustration game-changing-image">
+                        </div>
+
+                        <!-- 플레이 버튼 -->
+                        <div class="play-button">▶</div>
+
+                    </a>
+                </div>
+
+                <!-- 유희왕 -->
+                <div class="game-content" id="yugioh-content">
+                    <a href="https://youtu.be/LSs4mBRy7nk?si=eiX4MKP4l2P0hlSm?feature=share&autoplay=0&mute=1&controls=1&rel=0"
+                        data-fancybox="game_videos_preview" data-caption="Yu-Gi-Oh duel licks playing">
+                        <div class="game-illustration-wrapper">
+                            <img src="./img/yu-gi-oh2.png" alt="유희왕 일러스트 1"
+                                class="game-illustration game-changing-image active">
+                            <img src="./img/yu-gi-oh_all_member.png" alt="유희왕 일러스트 2"
+                                class="game-illustration game-changing-image">
+                        </div>
+
+                        <!-- 플레이 버튼 -->
+                        <div class="play-button">▶</div>
+
+                    </a>
+                </div>
+            </section>
+
+            <!-- Movie part -->
+
+            <section id="movie">
+                <div class="title">
+                    <h2>Gameplays</h2>
+
+                    <div class="game-list">
+                        <h2>Cyberpunk 2077</h2>
+                        <h2>Left 4 Dead 2</h2>
+                        <h2>OverWatch</h2>
+                        <h2>Yu-gi-oh duel links</h2>
+                    </div>
+
+                    <!-- 밑에는 기본적으로 display : none -->
+                    <div class="game-video" id="CP2077">
+                        <ul class="video-list">
+                            <li><a href="javascript:void(0);" class="open-youtube-modal"
+                                    data-video-id="-UZKZmlAWMA">Adam Smasher</a></li>
+                            <li><a href="javascript:void(0);" class="open-youtube-modal"
+                                    data-video-id="XZ2kmdim9O0">Sandayu Oda</a></li>
+                            <li><a href="javascript:void(0);" class="open-youtube-modal"
+                                    data-video-id="h0ymBssGYL4">Kurt Hansen</a></li>
+                        </ul>
+
+                        <div class="video-controls">
+                            <button class="prev-video">이전</button>
+                            <span class="video-counter">1 / 3</span>
+                            <button class="next-video">다음</button>
+                        </div>
+                    </div>
+
+                    <div class="game-video" id="L4D2">
+                        <ul class="video-list">
+                            <li><a href="javascript:void(0);" class="open-youtube-modal">영상 1 (준비 중)</a></li>
+                            <li><a href="javascript:void(0);" class="open-youtube-modal">영상 2 (준비 중)</a></li>
+                            <li><a href="javascript:void(0);" class="open-youtube-modal">영상 3 (준비 중)</a></li>
+                        </ul>
+
+                        <div class="video-controls">
+                            <button class="prev-video">이전</button>
+                            <span class="video-counter">1 / 3</span>
+                            <button class="next-video">다음</button>
+                        </div>
+                    </div>
+
+                    <div class="game-video" id="OW">
+                        <ul class="video-list">
+                            <li><a href="javascript:void(0);" class="open-youtube-modal">영상 1 (준비 중)</a></li>
+                            <li><a href="javascript:void(0);" class="open-youtube-modal">영상 2 (준비 중)</a></li>
+                            <li><a href="javascript:void(0);" class="open-youtube-modal">영상 3 (준비 중)</a></li>
+                        </ul>
+                        <div class="video-controls">
+                            <button class="prev-video">이전</button>
+                            <span class="video-counter">1 / 3</span>
+                            <button class="next-video">다음</button>
+                        </div>
+                    </div>
+
+                    <div class="game-video" id="Yugioh">
+                        <ul class="video-list">
+                            <li><a href="javascript:void(0);" class="open-youtube-modal"
+                                    data-video-id="ueXh4SWWvyk">시계신</a></li>
+                            <li><a href="javascript:void(0);" class="open-youtube-modal"
+                                    data-video-id="wKJ2Pl9Ggy0">인페르니티</a></li>
+                            <li><a href="javascript:void(0);" class="open-youtube-modal"
+                                    data-video-id="Ldyaf2plw30">스피드로이드</a></li>
+                        </ul>
+
+                        <div class="video-controls">
+                            <button class="prev-video">이전</button>
+                            <span class="video-counter">1 / 3</span>
+                            <button class="next-video">다음</button>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tip part -->
+
+            <section id="tip">
+                <div class="title">
+                    <h2>My Playing Tips</h2>
+                    <p class="sub-title"><em>Click to learn my strategies!</em></p>
+                </div>
+
+                <!-- Tip 항목들을 감싸는 컨테이너 -->
+                <div class="tip-cont cont-inner">
+                    <!-- Cyberpunk 2077 Tip -->
+
+                    <a href="javascript:;" data-fancybox="cp2077-modal-trigger" data-src="#cp2077-tip-modal"
+                        data-caption="Cyberpunk 2077 비살상 제압 팁">
+                        <div class="tip-item">
+                            <div class="item-overlay">
+                                <img src="./img/cy2077.png" class="lightmode" alt="Cyberpunk 2077 Tip Thumbnail">
+                                <img src="./img/cy2077_darkmode.png" class="darkmode" alt="Cyberpunk 2077 Tip Thumbnail">
+                                <div class="game-title">Cyberpunk 2077</div>
+                                <div class="popup-icon">📄</div> <!-- 모달 팝업 아이콘 -->
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- ------------------------------------------------------------------------- -->
+
+                    <!-- Overwatch Tip -->
+                    <a href="javascript:;" data-fancybox="ow-tip" data-caption="오버워치 스타디움" data-src="#ow-tip-modal">
+                        <div class="tip-item">
+                            <div class="item-overlay">
+                                <img src="./img/ow.png" class="lightmode" alt="OverWatch Tip Thumbnail">
+                                <img src="./img/ow_darkmode.png" class="darkmode" alt="Overwatch Tip Thumbnail">
+                                <div class="game-title">OverWatch</div>
+                                <div class="popup-icon">📄</div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- ------------------------------------------------------------------------- -->
+
+
+
+                    <!-- Left 4 Dead 2 Tip -->
+                    <a href="javascript:;" data-fancybox="L4D-tip" data-caption="Left 4 Dead 2 꿀팁"
+                        data-src="#L4D-tip-modal">
+                        <div class="tip-item">
+                            <div class="item-overlay">
+                                <img src="./img/L4d2.png" class="lightmode" alt="Left 4 Dead Tip Thumbnail">
+                                <img src="./img/L4d2_dark.png" class="darkmode" alt="Left 4 Dead Tip Thumbnail">
+                                <div class="game-title">Left 4 Dead 2</div>
+                                <div class="popup-icon">📄</div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- ------------------------------------------------------------------------- -->
+
+
+                    <!-- Yu-Gi-Oh Duel Links Tip -->
+                    <a href="javascript:;" data-fancybox="YUGIOH-tip" data-caption="유희왕 듀얼 링크스 덱 빌드 팁"
+                        data-src="#YUGIOH-tip-modal">
+                        <div class="tip-item">
+                            <div class="item-overlay">
+                                <img src="./img/yu-gi-oh.png" class="lightmode" alt="Yu-Gi-Oh Tip Thumbnail">
+                                <img src="./img/yu-gi-oh_darkmode.png" class="darkmode" alt="Yu-Gi-Oh Tip Thumbnail">
+                                <div class="game-title">Yu-Gi-Oh! Duel Links</div>
+                                <div class="popup-icon">📄</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2025 Root's Web PortFolio. All rights reserved.</p>
+                <p>Designed and Developed by Root. With grit and many bugs.</p>
+                <div class="footer-social-links">
+                    <!-- Font Awesome 아이콘 활용 -->
+                    <a href="https://www.youtube.com/@parkrootplayer" target="_blank" title="My YouTube"><i
+                            class="fab fa-youtube"></i></a>
+                    <a href="#" title="My Discord" data-social-footer="discord"><i class="fab fa-discord"></i></a>
+                    <a href="https://steamcommunity.com/id/SteamLoot/" target="_blank" title="My Steam"
+                        data-social-footer="steam"><i class="fab fa-steam"></i></a>
+                    <a href="#" title="My Battlenet" data-social-footer="battlenet"><i
+                            class="fab fa-battle-net"></i></a>
+                </div>
+                <p>Made with HTML, CSS, JavaScript, and a lot of debugging.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- 관리하기 쉬운 팝업창(Modals)-->
+
+    <div id="Modals">
+        <!-- 포트폴리오 세션에 쓸 모달은 팬시박스하고 스와이퍼 슬라이드로 사용해서 지웠음 (이 주석도 조만간 지울 예정) -->
+
+        <!-- Movie 세션 전용 모달 (범용 플레이어) 시작 -->
+        <div id="videoModal" class="modal-overlay" style="display: none;">
+            <div class="modal-content video-modal-content">
+                <button class="modal-close-btn">&times;</button>
+                <div class="video-wrapper">
+                    <!-- 여기에 유튜브 영상 iframe이 삽입될 예정! -->
+                    <!-- 처음에는 src를 비워두거나 about:blank로 설정해서 빈 상태로 둬. -->
+                    <!-- JS가 클릭 이벤트에 따라 여기에 실제 영상 URL을 채워넣을 거야! -->
+                    <iframe id="youtubePlayer" width="560" height="315" src="about:blank" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <!-- 선택 사항: 영상 제목이나 설명이 필요하면 추가 -->
+                <h3 class="video-title"></h3>
+            </div>
+        </div>
+        <!-- Movie 세션 전용 모달 끝 -->
+
+
+
+        <!-- 이제 Tip 세션을 위한 모달들! -->
+        <!-- Fancybox로 띄울 이미지 슬라이드/게시글 모달 내용 (숨겨진 DIV) -->
+
+        <!-- 사이버펑크 팁 모달 -->
+        <div style="display: none;" id="cp2077-tip-modal">
+            <h3>사이버펑크 2077 사이버 사이코 비살상 제압 팁</h3>
+            <p>알아두면 나쁘지않는 팁이라고 생각됩니다.</p>
+
+            <button class="open-cp2077-gallery-btn"
+                style="padding:10px 20px; background-color: purple; color: white; border: none; cursor:pointer; margin-top:15px;">
+                사이버펑크 팁 갤러리 보기
+            </button>
+
+            <div data-fancybox="CP2077_gallery">
+                <!-- 이미지 리스트 -->
+                <a data-src="./img/adam.webp" data-caption="초반 사이버사이코 제압" href="javascript:;" style="display:none;"></a>
+                <!-- ... 나머지 이미지 갤러리 아이템들 ... -->
+
+                <!-- 유튜브 링크 -->
+                <a id="cp2077-youtube-trigger" data-fancybox="CP2077_gallery"
+                    data-src="https://youtube.com/embed/AGD04kG7KLw?autoplay=0&mute=1&controls=1"
+                    data-caption="비살상 제압 공략 영상" href="javascript:;" data-type="iframe" style="display:none;">
+                    <img src="./img/folio_section_Thumbnail.png" style="display: none;">
+                </a>
+
+            </div>
+            <p>매우 어려움 기준으로 녹화한 사이버 사이코 비살상 제압 공략</p>
+        </div>
+
+
+
+        <!-- 레포데2 팁 모달 -->
+        <div style="display: none;" id="L4D-tip-modal">
+            <h3>Left 4 Dead 2 realism expert playing</h3>
+            <p>리얼리즘 전문가 난이도 강화 스크립트 플레이 영상</p>
+
+            <!-- 영상 재생 버튼 추가 -->
+            <button class="open-L4D-gallery-btn"
+                style="padding:10px 20px; background-color: purple; color: white; border: none; cursor:pointer; margin-top:15px;">
+                영상 보기
+            </button>
+
+            <div data-fancybox="L4D_gallery">
+                <!-- 이미지 리스트 -->
+                <a data-src="./img/L4d2.png" data-caption="No hope mode" href="javascript:;" style="display:none;"></a>
+                <!-- ... 나머지 이미지 갤러리 아이템들 ... -->
+
+                <!-- 유튜브 링크 -->
+                <a id="L4D-youtube-trigger" data-fancybox="L4D_gallery"
+                    data-src="https://youtube.com/embed/O5RoCDtQQ5g?autoplay=0&mute=0&controls=1"
+                    data-caption="기존의 리얼리즘 전문가 강화" href="javascript:;" data-type="iframe" style="display:none;">
+                    <img src="./img/folio_section_Thumbnail.png" style="display: none;">
+                </a>
+
+            </div>
+            <p>리얼리즘 전문가 난이도 강화 스크립트 영상</p>
+        </div>
+
+        <!-- 오버워치 팁 모달 -->
+        <div style="display: none;" id="ow-tip-modal">
+            <h3>오버워치 스타디움</h3>
+            <p>라인하르트 망치빌드</p>
+
+            <!-- 영상 재생 버튼 추가 -->
+            <button class="open-ow-gallery-btn"
+                style="padding:10px 20px; background-color: purple; color: white; border: none; cursor:pointer; margin-top:15px;">
+                영상 보기
+            </button>
+
+            <div data-fancybox="ow_gallery">
+                <!-- 이미지 리스트 -->
+                <a data-src="./img/ow.png" data-caption="라인하르트_스타디움_빌드" href="javascript:;" style="display:none;"></a>
+                <!-- ... 나머지 이미지 갤러리 아이템들 ... -->
+
+                <!-- 유튜브 링크 -->
+                <a id="ow-youtube-trigger" data-fancybox="ow_gallery"
+                    data-src="https://youtube.com/embed/XdX52C9M0H0?autoplay=0&mute=1&controls=1"
+                    data-caption="라인하르트 망치빌드" href="javascript:;" data-type="iframe" style="display:none;">
+                    <img src="./img/folio_section_Thumbnail.png" style="display: none;">
+                </a>
+
+            </div>
+            <p>출저 : 김통수_유튜브</p>
+            <!-- 추후에 본인 영상으로 바꿀 예정 -->
+        </div>
+
+        <!-- 유희왕 듀얼 링크스 팁 모달 -->
+        <div style="display: none;" id="YUGIOH-tip-modal">
+            <h3>(유희왕 듀얼 링크스) 아다마시아</h3>
+            <p>듀얼링크스 환경에서 맞춰진 아다마시아</p>
+            <button class="open-YUGIOH-gallery-btn"
+                style="padding:10px 20px; background-color: purple; color: white; border: none; cursor:pointer; margin-top:15px;">
+                덱 영상 보기
+            </button>
+
+            <div data-fancybox="YUGIOH_gallery">
+                <!-- 이미지 리스트 -->
+                <a data-src="./img/yu-gi-oh.png" data-caption="아다마시아" href="javascript:;" style="display:none;"></a>
+                <!-- ... 나머지 이미지 갤러리 아이템들 ... -->
+
+                <!-- 유튜브 링크 -->
+                <a id="YUGIOH-youtube-trigger" data-fancybox="YUGIOH_gallery"
+                    data-src="https://www.youtube.com/embed/jbFJYNwSeSI?autoplay=0&mute=1&controls=1"
+                    data-caption="아다마시아" href="javascript:;" data-type="iframe" style="display:none;">
+                    <img src="./img/folio_section_Thumbnail.png" style="display: none;">
+                </a>
+
+            </div>
+            <p>덱 테스트</p>
+            <!-- 추후에 원래 영상으로 바꿀 예정 -->
+        </div>
+
+
+        <!-- 제이쿼리 연결 -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+        <!-- cdn 링크 -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.js"></script>
+
+        <!-- 스크립트 파일 링크 -->
+        <!-- 메인 스크립트 -->
+        <script src="./scripts/scripts.js"></script>
+
+        <!-- 사진 또는 영상 갤러리 형식으로 쓸때 필수 -->
+        <script src="./scripts/fancy_box.js"></script>
+
+        <!-- 포트폴리오 세션 스크립트-->
+        <!-- 스와이퍼 슬라이드(커스텀) -->
+        <script src="./scripts/portfolio_srcipt.js"></script>
+
+        <!-- 게임 세션 스크립트 일부만 가져옴 -->
+        <!-- 기존의 메인 스크립트가 너무 양이 많아져서 분리함 -->
+        <!-- 추후에 나눌 예정 -->
+        <script src="./scripts/game_script.js"></script>
+
+
+
+
+</body>
+
+</html>

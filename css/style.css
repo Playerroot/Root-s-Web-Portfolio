@@ -1,0 +1,1580 @@
+@charset "utf-8";
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* -------------------------------- */
+body.modal-open {
+    overflow: hidden !important;
+    /* 스크롤바를 숨김 */
+    height: 100% !important;
+    /* body의 높이를 뷰포트에 고정 */
+    width: 100% !important;
+    /* 너비 100% 유지 (iOS 스크롤 버그 방지) */
+    position: fixed !important;
+    /* body에 position: fixed 강제! */
+    /* top 속성은 JS가 동적으로 조절할 것 */
+    /* padding-right는 JS가 동적으로 추가할 것 */
+}
+
+/* -------------------------------- */
+
+#wrap {
+    width: 100%;
+}
+
+/* -------------------------------- */
+
+.inner {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+}
+
+/* -------------------------------- */
+
+.cont-inner {
+    width: 1600px;
+    margin: 0 auto;
+}
+
+/* -------------------------------- */
+
+.cur-scroll {
+    position: fixed;
+    top: 100px;
+    right: 30px;
+
+    color: var(--scroll-value-color);
+    background-color: var(--scroll-value-bg);
+    /* 이제 항상 투명하게 적용될 거야! */
+    opacity: 0.8;
+    /* 전체 불투명도 조절 (다크/라이트 모두 적용) */
+    transition: color 0.3s ease;
+    /* 색상만 부드럽게 바뀌도록 */
+}
+
+.scroll-pager {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 30px;
+    border: 2px solid #222;
+
+    border-radius: 20px;
+}
+
+.scroll-pager span {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+
+    animation: pagerball 0.5s infinite alternate linear;
+
+    transform: translate(-50%, 0%);
+
+    border: 5px black solid;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+}
+
+@keyframes pagerball {
+    0% {
+        top: 5px;
+    }
+
+    100% {
+        top: 10px;
+    }
+}
+
+.nav-icon {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Plus-btn i {
+    /* 넓이,높이 */
+    width: 48px;
+    height: 48px;
+
+    /* 배경색 및 폰트 */
+    background-color: #222;
+    color: #fff;
+    font-size: 40px;
+    border-radius: 50%;
+
+    /* 플렉스를 이용한 가운데 정렬 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    z-index: 10000;
+
+    /* 트렌지션 효과 및 커서 */
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.nav-icon .Plus-btn.on i {
+    transform: rotate(45deg);
+}
+
+.nav-icon ul {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* 중앙 고정 */
+}
+
+.nav-icon ul li i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.3s;
+
+    width: 48px;
+    height: 48px;
+    background-color: #222;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+}
+
+.nav-icon.on .fa-house-user {
+    top: -68px;
+    /* 위쪽 */
+    transition-delay: 0s;
+    /* 중앙 */
+}
+
+.nav-icon.on .fa-circle-user {
+    top: -48px;
+    /* 위쪽 */
+    left: -48px;
+    /* 왼쪽 */
+    transition-delay: 0.1s;
+}
+
+.nav-icon.on .fa-file-word {
+    top: 0px;
+    /* 중앙 */
+    left: -68px;
+    /* 왼쪽 */
+    transition-delay: 0.2s;
+}
+
+.nav-icon.on .fa-discord {
+    top: 48px;
+    /* 아래쪽 */
+    left: -48px;
+    /* 왼쪽 */
+    transition-delay: 0.3s;
+}
+
+.nav-icon.on .fa-youtube {
+    top: 68px;
+    /* 아래쪽 */
+    left: 0px;
+    /* 중앙 */
+    transition-delay: 0.4s;
+}
+
+.top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    scale: 150%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    /* 다른 요소보다 위에 표시되게 */
+}
+
+.top-btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+/* -------------------------------- */
+header {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+
+    background-color: transparent;
+    /* 투명 */
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+
+    z-index: 10000;
+}
+
+header.on {
+    width: calc(100% - 40px);
+    top: 10px;
+    border-radius: 40px;
+}
+
+
+/* -------------------------------- */
+
+/* 아이콘 */
+.fa-circle-user:before,
+.fa-user-circle:before {
+    content: "\f2bd";
+    padding: 5px;
+}
+
+/* -------------------------------- */
+h1.on i {
+    color: hotpink;
+    animation: heartbeat 0.5s 1 alternate;
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+        color: hotpink;
+    }
+
+    25% {
+        transform: scale(1.5);
+        opacity: 0.5;
+        color: rgb(238, 153, 167);
+    }
+
+    50% {
+        transform: scale(2);
+        opacity: 1;
+        color: red;
+    }
+
+    75% {
+        transform: scale(1.5);
+        opacity: 0.5;
+        color: rgb(238, 153, 167);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+        color: hotpink;
+    }
+}
+
+header nav ul {
+    display: flex;
+    gap: 40px;
+    text-transform: uppercase;
+}
+
+header li>a {
+    position: relative;
+}
+
+header li>a::after {
+    content: '';
+    position: absolute;
+
+    width: 0%;
+    height: 6px;
+
+    bottom: -5px;
+    left: 0;
+
+    background-color: var(--text-secondary);
+    transition: width 0.3s ease;
+}
+
+header li.on>a::after {
+    width: 100%;
+}
+
+
+#wrap.on header li>a::after {
+    background-color: var(--text-header);
+}
+
+/* after,before : 비어있는 span 태그  
+
+    before : 앞에    
+    after : 뒤에
+
+    content : before,after 태그에 필수로 들어가야하는 태그
+*/
+
+
+.darkmode-btn {
+    width: 60px;
+    height: 30px;
+
+    background-color: rgb(163, 246, 241);
+    /* 다크모드 전환 버튼 배경 */
+    box-shadow: inset 0px 0px 10px rgb(96, 193, 186);
+    /* 다크모드 전환 버튼 그림자 */
+    border-radius: 15px;
+
+    position: relative;
+    transition: 0.3s;
+
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.darkmode-btn.on {
+    background: var(--bg-secondary);
+    box-shadow: var(--box-shadow);
+}
+
+.sun {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgb(255, 201, 25);
+
+    position: absolute;
+
+    top: 50%;
+    left: 4px;
+    transform: translate(0, -50%);
+
+    transition: 0.3s;
+}
+
+.sun .moon {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: rgb(10, 93, 88);
+
+    opacity: 0;
+
+    position: absolute;
+
+    transition: 0.3s;
+}
+
+.darkmode-btn.on .sun .moon {
+    opacity: 1;
+}
+
+.darkmode-btn.on .sun {
+    background-color: rgb(255, 240, 25);
+    left: calc(100% - 24px);
+}
+
+.cloud {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #fff;
+
+    position: absolute;
+
+    bottom: 0px;
+    left: 0px;
+    transition: 0.3s 0.1s;
+}
+
+.darkmode-btn.on .cloud {
+    left: 30px;
+}
+
+.cloud i {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+
+    position: absolute;
+}
+
+.left-cloud {
+    top: 3px;
+    left: -6px;
+}
+
+.right-cloud {
+    top: 3px;
+    right: -6px;
+}
+
+/* -------------------------------- */
+section {
+    width: 100%;
+    height: 100vh;
+    padding: 88px 20px 40px 20px;
+}
+
+section .title {
+    display: flex;
+
+    gap: 10px;
+
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    opacity: 0;
+    transition: 0.5s;
+    overflow: hidden;
+
+    margin-bottom: 20px;
+}
+
+section.on .title {
+    opacity: 1;
+}
+
+section .sub-title {
+    transform: translateY(100%);
+    transition: 0.5s 0.3s;
+    opacity: 0;
+    padding: 10px;
+}
+
+section h2 {
+    font-size: 40px;
+    text-transform: capitalize;
+    transform: translateY(100%);
+    transition: 0.3s;
+    opacity: 0;
+}
+
+section.on h2 {
+    transform: translateY(0%);
+    opacity: 1;
+}
+
+section.on .sub-title {
+    opacity: 1;
+    transform: translateY(-10px);
+}
+
+/* -------------------------------- */
+#home {
+    background-color: var(--bg-primary);
+    display: flex;
+    justify-content: space-between;
+}
+
+#home .title-home {
+    position: relative;
+}
+
+#home .title-home .lightmode,
+#home .sub-title .lightmode,
+#home .home-img .lightmode {
+    display: block;
+    /* 기본적으로 라이트모드 텍스트 이미지는 보이게! */
+}
+
+#home .title-home .darkmode,
+#home .sub-title .darkmode,
+#home .home-img .darkmode {
+    display: none;
+    /* 다크모드 텍스트 이미지는 기본적으로 숨김! */
+}
+
+#home .title-home h2 img {
+    position: absolute;
+    width: 1000px;
+}
+
+#home .sub-title {
+    position: relative;
+}
+
+#home .sub-title p img {
+    width: 80%;
+    height: 800px;
+    left: -50px;
+
+    opacity: 0;
+    transition: 0.5s;
+    position: absolute;
+}
+
+#home.on .sub-title p img {
+    opacity: 1;
+}
+
+#home img {
+    /* 네온 사인 배경 이미지 */
+    border: none;
+    vertical-align: middle;
+    width: 100%;
+    /* 가로 스크롤 방지 */
+}
+
+/* -------------------------------- */
+
+/* ------------------ */
+/* --- 타이틀 영역 --- */
+/* ------------------ */
+#about {
+    width: 100%;
+    padding: 100px 0;
+    background-color: var(--bg-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#about .sub-title.top h2,
+#about .sub-title.under h2 {
+    color: var(--text-primary);
+}
+
+#about .sub-title.top p,
+#about .sub-title.under p {
+    color: var(--text-secondary);
+}
+
+#about .about-wrap {
+    width: 80%;
+    max-width: 1904px;
+
+    display: flex;
+    /* ✅ 여기! justify-content를 space-between 대신 center로 바꿔줘! ✅ */
+    justify-content: center;
+    /* 아이템들을 통째로 가운데로 모음 */
+    /* 혹은 justify-content: flex-start; 로 하면 왼쪽 끝에 정렬됨 */
+
+    align-items: flex-start;
+    /* 기존과 동일하게 유지 */
+
+    /* ✅ gap은 네가 원하는 간격으로! (예: 50px, 80px) ✅ */
+    gap: 80px;
+    /* 이니셜과 텍스트 영역 사이의 간격을 여기다가 주면 돼! */
+
+    position: relative;
+}
+
+/* 활성화 시 (스크롤 등장 or 트리거 시) */
+#about.on .title {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* 제목 순차 애니메이션 */
+#about h2 {
+    margin-bottom: 30px;
+}
+
+#about.on h2,
+#about.on .sub-title {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+#about.on h2:nth-of-type(1) {
+    animation-delay: 0.3s;
+}
+
+#about.on .sub-title.top {
+    animation-delay: 0.6s;
+}
+
+#about.on h2:nth-of-type(2) {
+    animation-delay: 0.9s;
+}
+
+#about.on h2:nth-of-type(3) {
+    animation-delay: 1.2s;
+}
+
+#about.on .sub-title.under {
+    animation-delay: 1.5s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ------------------ */
+/* --- 서브타이틀 영역 --- */
+/* ------------------ */
+#about .sub-title.top {
+    padding: 30px 60px;
+    margin-left: 0;
+    opacity: 0;
+    transition: 0.5s 0.3s;
+}
+
+#about.on .sub-title.top {
+    opacity: 1;
+}
+
+#about .sub-title.under {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 80px;
+    /* 여백 늘림 */
+    padding-left: 50px;
+    line-height: 1.6;
+    opacity: 0;
+}
+
+#about .sub-title.under-left,
+#about .sub-title.under-right {
+    flex: 1;
+    white-space: nowrap;
+    /* 줄바꿈 방지 */
+}
+
+#about .sub-title.under-left>h2,
+#about .sub-title.under-right>h2 {
+    position: relative;
+    top: 0;
+    margin-bottom: 20px;
+}
+
+#about .sub-title.under p {
+    text-align: left;
+    padding: 5px 0;
+    margin: 0;
+}
+
+#about.on .sub-title.under {
+    opacity: 1;
+}
+
+
+/* ------------------ */
+/* --- 이니셜 영역 --- */
+/* ------------------ */
+#about .jh-initial {
+    flex: 0 0 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+}
+
+#about .jh-initial img {
+    width: 450px;
+    /* 살짝 줄이되 비율 유지 */
+    height: auto;
+    transform: translateY(-10px);
+}
+
+/* -------------------------------- */
+
+#folio {
+    background-color: var(--bg-primary);
+}
+
+#folio .sub-title em {
+    margin: 0 5px;
+    /* 좌우 5px 여백 */
+    /* 또는 */
+    padding: 0 5px;
+    /* 좌우 5px 패딩 */
+}
+
+#folio .sub-title {
+    line-height: 1.5;
+    /* 기본보다 조금 더 넓은 라인 간격 */
+}
+
+/* -------------------------------- */
+
+#game {
+    background-color: var(--bg-primary);
+}
+
+#game .title h2 {
+    padding: 10px 10px;
+}
+
+.game-inner {
+    width: 1600px;
+    margin: 0 auto;
+}
+
+/* 탭 메뉴들을 감싸는 컨테이너 */
+.game-tabs {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    width: 1600px;
+    margin: 0 auto;
+}
+
+/* 각 개별 탭 버튼 */
+.game-tab-item {
+    flex: 1;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background-color: var(--tab-bg);
+}
+
+.game-tab-item:hover {
+    background-color: var(--text-placeholder);
+    transform: translateY(-3px);
+}
+
+.game-tab-item.active {
+    border-color: var(--accent-color);
+    background-color: var(--bg-opacity);
+    box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.3);
+}
+
+.game-tab-item img {
+    width: 60px;
+    margin-bottom: 5px;
+}
+
+.game-tab-item span {
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.game-content {
+    display: none;
+    height: 400px;
+    /* 또는 적절한 높이값. 혹시 이게 너무 작거나 아예 없다면 문제 발생! */
+    position: relative;
+    /* 자식 <a> 태그의 absolute 기준 */
+    /* width: 100%; <- 이건 보통 기본값이라 괜찮을거야 */
+}
+
+.game-content a {
+    position: relative;
+    /* 이게 핵심! */
+    display: block;
+    /* a태그가 블록 요소가 되어야 자식들이 그 안에 제대로 들어감 */
+    width: 100%;
+    /* 부모에 꽉 차게 */
+    height: 100%;
+    /* 부모에 꽉 차게 */
+}
+
+.game-content.active {
+    display: block;
+    /* active 클래스가 붙은 게임 콘텐츠만 보이게 */
+    /* 필요하다면 flex나 grid로 변경 */
+}
+
+.game-illustration-wrapper {
+    /* 변경된 클래스명 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.game-illustration-wrapper .game-illustration.game-changing-image {
+    /* 변경된 클래스명 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.game-illustration-wrapper .game-illustration.game-changing-image.active {
+    /* 변경된 클래스명 */
+    opacity: 1;
+}
+
+/* -------------------------------- */
+/* #movie */
+/* -------------------------------- */
+
+#movie {
+    background-color: var(--bg-primary);
+}
+
+#movie h2 {
+    padding: 10px 10px;
+}
+
+/* 게임 목록 */
+.game-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 50px;
+    margin-bottom: 20px;
+    /* 게임 리스트와 영상 컨텐츠 사이 간격 추가 */
+}
+
+.game-list h2 {
+    flex: 1;
+    text-align: center;
+    padding: 10px 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: var(--text-primary);
+}
+
+.game-list h2.active {
+    color: var(--accent-highlight);
+    font-weight: bold;
+}
+
+/* 게임 영상 목록 (탭 메뉴) */
+.game-video {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+    /* max-width: 900px; /* 영상 너비에 맞춰 적절히 조절 */
+    margin: 0 auto;
+    /* 중앙 정렬 */
+}
+
+.game-video.active {
+    display: flex;
+    /* flex로 변경하여 내부 요소 중앙 정렬 및 컨트롤 편의 */
+}
+
+/* 영상 목록 (전체 묶음) */
+.video-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* 영상을 수직으로 쌓기 */
+    gap: 10px;
+    /* 영상 리스트 간 간격 추가 */
+}
+
+.video-list li {
+    display: flex;
+    /* 내부 링크를 가운데 정렬하기 위해 flex 사용 */
+    justify-content: center;
+    /* 가운데 정렬 */
+    align-items: center;
+    padding: 10px;
+    /* 패딩 조정 */
+    margin-bottom: 0;
+    /* li 사이 margin 제거 (gap으로 대체) */
+    background: var(--bg-secondary);
+    /* 배경색 변수 사용 */
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    /* 그림자 변수 사용 */
+    cursor: pointer;
+    /* 클릭 가능하다는 표시 */
+    transition: background 0.3s ease;
+}
+
+.video-list li:hover {
+    background: var(--highlight-color);
+    /* 호버 시 강조색 (만약 없으면 적절한 변수 추가) */
+    /* background: color-mix(in srgb, var(--bg-secondary) 80%, var(--accent-color) 20%); /* 좀 더 세련된 호버 효과 */
+}
+
+.video-list li a {
+    display: block;
+    /* li 전체 영역 클릭 가능하도록 */
+    width: 100%;
+    /* 너비 100% */
+    text-align: center;
+    /* 텍스트 중앙 정렬 */
+    padding: 8px 12px;
+    color: var(--text-primary);
+    /* 텍스트 색상 변수 사용 */
+    text-decoration: none;
+    /* max-width: 200px; */
+    /* li 전체를 링크로 사용하므로 필요 없을 수 있음 */
+    /* white-space: nowrap; */
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; */
+    /* 이건 필요에 따라 다시 살릴 수 있어. */
+}
+
+/* 컨트롤 버튼 */
+.video-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.video-controls button {
+    padding: 8px 15px;
+    background: var(--card-bg, var(--bg-tertiary));
+    /* 버튼 배경색 변수 사용 */
+    border: 1px solid var(--border-color);
+    /* 보더 색상 변수 사용 */
+    color: var(--text-primary);
+    /* 텍스트 색상 변수 사용 */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.video-controls button:hover {
+    background: color-mix(in srgb, var(--card-bg, var(--bg-tertiary)) 80%, var(--accent-color) 20%);
+    /* 호버 시 액센트 컬러 살짝 섞기 */
+}
+
+.video-counter {
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    /* 부모 .modal-content에 맞춰 100% */
+    padding-bottom: 56.25%;
+    /* 16:9 비율 유지 (높이 = 너비 * 9 / 16) */
+    height: 0;
+    overflow: hidden;
+    /* iframe이 이 영역 밖으로 나가지 않도록 */
+    background-color: #000;
+    /* 영상 로딩 중 검은 배경 */
+    border-radius: 5px;
+    /* iframe 주변 살짝 둥글게 */
+    margin-bottom: 15px;
+    /* 영상과 제목 사이 간격 */
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    /* 기본 iframe 테두리 제거 */
+}
+
+.video-title {
+    color: var(--text-primary);
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* fadeIn 애니메이션 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* -------------------------------- */
+#tip {
+    background-color: var(--bg-primary);
+    /* 메인 배경색 변수 사용 */
+    padding: 80px 0;
+    /* 상하 여백 */
+    text-align: center;
+}
+
+#tip .title h2 {
+    font-size: 3em;
+    /* 헤더 크기 조정 */
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+#tip .title .sub-title {
+    font-size: 1.2em;
+    color: var(--text-secondary);
+    margin-bottom: 50px;
+}
+
+
+#tip .tip-cont .tip-item .item-overlay .lightmode {
+    display: block;
+    /* 기본적으로 라이트모드 텍스트 이미지는 보이게! */
+}
+
+
+#tip .tip-cont .tip-item .item-overlay .darkmode {
+    display: none;
+    /* 다크모드 텍스트 이미지는 기본적으로 숨김! */
+}
+
+/* 팁 항목 컨테이너 (Flexbox 적용) */
+.tip-cont {
+    display: flex;
+    flex-wrap: wrap;
+    /* 항목들이 넘치면 다음 줄로 */
+    gap: 30px;
+    /* 항목들 사이의 간격 */
+    justify-content: center;
+    /* 가운데 정렬 */
+    max-width: 1200px;
+    /* 전체 컨테이너 최대 너비 */
+    margin: 0 auto;
+    /* 가운데 정렬 */
+}
+
+/* 각 팁 항목 */
+.tip-cont a {
+    /* a 태그 자체가 하나의 Flex Item이 됨 */
+    display: block;
+    /* a 태그도 블록 요소처럼 */
+    width: calc(50% - 15px);
+    /* 두 개씩 나열 (gap 30px의 절반을 빼줌) */
+    text-decoration: none;
+    /* 링크 밑줄 제거 */
+    color: inherit;
+    /* 텍스트 색상 부모로부터 상속 */
+}
+
+.tip-item {
+    background-color: var(--bg-tertiary);
+    /* 항목 배경색 */
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+    /* 그림자 효과 */
+    overflow: hidden;
+    /* 이미지 모서리 둥글게 */
+    position: relative;
+    /* 오버레이/버튼 위치 기준 */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    /* 부모 a 태그에 꽉 차게 */
+    display: flex;
+    /* 내부 요소 정렬을 위해 Flexbox 사용 */
+    flex-direction: column;
+}
+
+.tip-item:hover {
+    transform: translateY(-8px);
+    /* 마우스 오버 시 살짝 떠오르는 효과 */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.item-overlay {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    /* 16:9 비율 유지 (이미지 높이 조절) */
+    overflow: hidden;
+    background-color: var(--border-color);
+}
+
+.item-overlay img {
+    position: absolute;
+    top: 0;
+    left: 30px;
+    width: 90%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease
+}
+
+.tip-item:hover .item-overlay img {
+    transform: scale(1.05);
+    /* 마우스 오버 시 이미지 확대 */
+}
+
+.game-title {
+    position: absolute;
+    /* 오버레이 위에 배치 */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* 반투명 배경 */
+    color: #fff;
+    padding: 15px 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+    z-index: 2;
+    /* 이미지보다 위 */
+}
+
+/* 플레이 버튼 (영상 팁용) */
+.play-button,
+.popup-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 2.5em;
+    /* 아이콘/버튼 크기 */
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    /* 가장 위에 */
+    opacity: 0;
+    /* 평소에는 숨김 */
+    transition: opacity 0.3s ease;
+}
+
+.tip-item:hover .play-button,
+.tip-item:hover .popup-icon {
+    opacity: 1;
+    /* 호버 시 나타남 */
+}
+
+/* -------------------------------- */
+
+
+/* modals */
+
+/* -------------------------------- */
+/* Video Modal (영상 팝업) CSS */
+/* -------------------------------- */
+.modal-overlay {
+    position: fixed;
+    /* 뷰포트에 고정 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* 어두운 배경 오버레이 */
+    display: flex;
+    /* 중앙 정렬을 위해 flex 사용 */
+    justify-content: center;
+    align-items: center;
+    z-index: 100000;
+    /* 다른 요소들 위에 오도록 설정 */
+    animation: fadeIn 0.3s ease-out;
+    /* 부드럽게 나타나는 효과 */
+}
+
+.modal-content.video-modal-content {
+    background-color: var(--bg-primary);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+
+    max-width: 90%;
+    /* 현재 설정 */
+
+
+    max-width: calc(100vw - 40px);
+
+    max-height: 100vh;
+    /* 화면 크기에 따른 최대 높이 (유지) */
+    width: 70%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-close-btn {
+    position: absolute;
+    /* 모달 콘텐츠의 오른쪽 위 '모서리'에서 바깥쪽으로 배치 */
+    top: 0px;
+    /* 모달 콘텐츠 상단에서 위로 20px */
+    right: 0px;
+    /* 모달 콘텐츠 우측에서 오른쪽으로 20px */
+
+    z-index: 1001;
+    /* 영상 (iframe)이나 다른 어떤 요소보다 높게 설정 */
+
+    /* 배경색과 둥근 모양으로 시각적으로 더 잘 보이게 */
+    background: var(--bg-secondary);
+    /* 배경색 변수 사용 (라이트/다크 모드에 맞춰짐) */
+    color: var(--text-primary);
+    /* 텍스트 색상 변수 사용 */
+    border-radius: 50%;
+    /* 동그란 버튼으로 만들 수 있어 */
+    width: 40px;
+    /* 버튼 크기 */
+    height: 40px;
+    /* 버튼 크기 */
+
+    /* 'X' 글자를 가운데 정렬 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    /* 'X' 문자가 세로 중앙에 오도록 조절 */
+    font-size: 24px;
+    /* 'X' 글자 크기 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    /* 살짝 그림자 줘서 입체감 */
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    /* 호버 효과 부드럽게 */
+}
+
+.modal-close-btn:hover {
+    background: var(--accent-color);
+    /* 호버 시 액센트 컬러로 배경색 변경 */
+    color: #fff;
+    /* 호버 시 글자색을 흰색으로 변경 */
+    transform: scale(1.1);
+    /* 살짝 커지는 애니메이션 */
+}
+
+/*  */
+/* footer */
+footer {
+    width: 100%;
+    /* 배경색은 다크모드/라이트모드에 따라 변수 활용 */
+    background-color: var(--bg-secondary);
+    /* 현재 bg-primary 보단 살짝 어둡게 */
+    color: var(--text-secondary);
+    /* 텍스트는 보조 색상으로 */
+    padding: 30px 20px;
+    /* 위아래 패딩, 좌우 패딩 */
+    text-align: center;
+    /* 내용 가운데 정렬 */
+    font-size: 14px;
+    line-height: 1.5;
+    /* 줄 간격 */
+}
+
+/* 푸터 링크 스타일 */
+footer a {
+    color: var(--link-color);
+    /* 링크 색상 */
+    text-decoration: none;
+    /* 밑줄 제거 */
+    margin: 0 5px;
+    /* 링크 간 여백 */
+}
+
+footer a:hover {
+    text-decoration: underline;
+    /* 호버 시 밑줄 */
+}
+
+/* 푸터 소셜 아이콘 (선택 사항) */
+footer .social-icons a {
+    font-size: 20px;
+    /* 아이콘 크기 */
+    margin: 0 8px;
+    color: var(--text-primary);
+}
+
+footer .social-icons a:hover {
+    color: var(--accent-color);
+    /* 호버 시 포인트 색상 */
+}
+
+footer .footer-content p {
+    margin-bottom: 8px;
+}
+
+footer .footer-content p:last-of-type {
+    margin-bottom: 0;
+}
+
+/* 다크모드 모음 */
+
+/* 푸터는 적용안함. */
+
+/* --- 헤더 --- */
+#wrap.on header {
+    background-color: var(--bg-header);
+    color: var(--text-header);
+}
+
+#wrap.on header h1 {
+    color: var(--accent-header);
+}
+
+body.on {
+    color: var(primary);
+}
+
+body.on header {
+    background-color: var(--bg-header);
+    /* ⬅️ 변수로 이미 적용됨 */
+    color: var(--text-header);
+    /* ⬅️ 변수로 이미 적용됨 */
+    /* 다크모드일 때 헤더에 특별히 변경할 게 있다면 여기에! */
+}
+
+body.on header h1.on i {
+    color: red;
+    animation: heartbeat 0.5s 1 alternate;
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+        color: red;
+    }
+
+    25% {
+        transform: scale(1.5);
+        opacity: 0.5;
+        color: rgb(238, 87, 87);
+    }
+
+    50% {
+        transform: scale(2);
+        opacity: 1;
+        color: hotpink;
+    }
+
+    75% {
+        transform: scale(1.5);
+        opacity: 0.5;
+        color: rgb(231, 79, 104);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+        color: darkred;
+    }
+}
+
+body.on .cur-scroll {
+    color: var(--scroll-value-color);
+    background-color: var(--scroll-value-bg);
+}
+
+body.on .scroll-pager {
+    border: 2px solid #fff;
+}
+
+body.on .scroll-pager span {
+    border: 5px #aaa solid;
+}
+
+/* 아이콘 */
+
+body.on .nav-icon {
+    /* 배경색 및 폰트 */
+    background-color: var(--bg-opacity);
+    border: 3px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+body.on .nav-icon.on .fa-house-user {
+    background-color: var(--bg-opacity);
+    color: var(--text-primary);
+}
+
+body.on .nav-icon.on .fa-circle-user {
+    background-color: var(--bg-opacity);
+    color: var(--text-primary);
+}
+
+body.on .nav-icon.on .fa-file-word {
+    background-color: var(--bg-opacity);
+    color: var(--text-primary);
+}
+
+body.on .nav-icon.on .fa-discord {
+    background-color: var(--bg-opacity);
+    color: var(--text-primary);
+}
+
+body.on .nav-icon.on .fa-youtube {
+    background-color: var(--bg-opacity);
+    color: var(--text-primary);
+}
+
+/* 아이콘 */
+
+body.on .top-btn {
+    color: #fff;
+    scale: 150%;
+}
+
+body.on #about .sub-title.top h2,
+body.on #about .sub-title.under h2 {
+    color: var(--text-primary);
+}
+
+body.on #about .sub-title.top p,
+body.on #about .sub-title.under p {
+    color: var(--text-secondary);
+}
+
+body.on #home,
+body.on #about,
+body.on #folio,
+body.on #game,
+body.on #movie,
+body.on #tip {
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    /* ⬅️ 변수로 이미 적용됨 */
+}
+
+body.on #game h2,
+body.on #movie h2 {
+    color: var(--accent-highlight);
+}
+
+body.on #home .title-home .lightmode,
+body.on #home .sub-title .lightmode,
+body.on #home .home-img .lightmode {
+    display: none;
+}
+
+body.on #home .title-home .darkmode,
+body.on #home .sub-title .darkmode,
+body.on #home .home-img .darkmode {
+    display: block;
+}
+
+body.on #game .title h2 {
+    color: var(--text-color);
+}
+
+body.on .game-tab-item {
+    border-color: var(--divider-color);
+}
+
+body.on .game-tab-item.active {
+    color: var(--accent-highlight);
+    box-shadow: 0 0 10px rgba(var(--box-shadow), 0.3);
+}
+
+body.on .game-tab-item:hover {
+    background-color: var(--dark--bg-opacity);
+}
+
+
+body.on .game-tab-item span {
+    color: var(text-color);
+}
+
+body.on #movie .title h2 {
+    color: var(--text-primary);
+}
+
+body.on #movie .game-list h2.active {
+    color: var(--accent-highlight);
+}
+
+body.on #movie .open-youtube-modal {
+    background-color: var(--text-placeholder);
+}
+
+body.on #tip .item-overlay {
+    background-color: var(--border-color);
+}
+
+body.on #tip .title h2 {
+    color: var(--text-title);
+}
+
+body.on #tip .title .sub-title {
+    color: var(--text-placeholder);
+}
+
+body.on #tip .sub-title em {
+    color: var(--text-secondary);
+}
+
+body.on .tip-item {
+    background-color: var(--bg-tertiary);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+body.on .tip-item:hover {
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+body.on #tip .tip-cont .tip-item .item-overlay .lightmode {
+    display: none;
+}
+
+
+body.on #tip .tip-cont .tip-item .item-overlay .darkmode {
+    display: block;
+}
+
+/* 다크모드에서 .modal-overlay의 배경색 조정 (선택 사항, 기본 어두운 오버레이가 이미 어두워서) */
+body.on .modal-overlay {
+    background-color: rgba(0, 0, 0, 0.9);
+    /* 다크 모드에선 좀 더 어둡게? */
+}
+
+body.on .modal-content.video-modal-content {
+    background-color: var(--bg-secondary);
+    /* 다크 모드에선 모달 배경을 좀 더 어두운 보조 배경으로 */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+    /* 다크 모드에선 그림자도 더 진하게 */
+}
+
+body.on .modal-close-btn {
+    color: var(--text-primary);
+    /* 다크모드의 밝은 텍스트 컬러로 변경 */
+}
+
+body.on .modal-close-btn:hover {
+    color: var(--accent-color);
+    /* 다크모드의 액센트 컬러로 변경 */
+}
